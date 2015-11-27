@@ -16,6 +16,7 @@ gem 'guard-sass'
 gem 'compass'
 gem 'guard-coffeescript'
 gem 'slim-rails'
+gem 'kakurenbo-puti'
 
 group :doc do
   gem 'yard'
