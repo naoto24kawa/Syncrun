@@ -11,12 +11,12 @@ Rails.application.routes.draw do
   # post idea#create アイデア登録処理
   # get idea#show Idea Detail画面
 
-  resources :user, only: [:show, :create]
-  resources :idea, only: [:new, :create, :show]
+  resources :user, only: [:show, :create], as: 'user'
+  resources :idea, only: [:new, :create, :show], as: 'idea'
 
-  get 'login' => 'static#login'
+  get 'login' => 'static#login', as: 'login'
   post 'login' => 'user#login'
-  get 'home' => 'static#home'
+  get 'home' => 'static#home', as: 'home'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
