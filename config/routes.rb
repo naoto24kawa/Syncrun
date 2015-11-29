@@ -1,3 +1,16 @@
+# == Route Map
+#
+#     Prefix Verb URI Pattern         Controller#Action
+# user_index POST /user(.:format)     user#create
+#       user GET  /user/:id(.:format) user#show
+# idea_index POST /idea(.:format)     idea#create
+#   new_idea GET  /idea/new(.:format) idea#new
+#       idea GET  /idea/:id(.:format) idea#show
+#      login GET  /login(.:format)    static#login
+#            POST /login(.:format)    user#login
+#       home GET  /home(.:format)     static#home
+#
+
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
