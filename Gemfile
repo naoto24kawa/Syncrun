@@ -40,6 +40,12 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
+  gem 'rails-flog', require: 'flog'
+end
+
+group :development do
+  gem 'annotate'
+  gem 'binding_of_caller'
 end
 
 group :test do
