@@ -12,4 +12,9 @@
 class Good < ActiveRecord::Base
   belongs_to :user
   belongs_to :to_user
+  has_many :title_goods
+  has_many :content_goods
+  has_many :task_goods
+
+  soft_deletable dependent_associations: [:user, :to_user]
 end
