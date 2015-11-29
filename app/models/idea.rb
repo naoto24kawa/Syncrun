@@ -18,5 +18,5 @@ class Idea < ActiveRecord::Base
   has_many :tasks
   has_many :idea_goods
 
-  soft_deletable
+  soft_deletable dependent_associations: [:category, :user]
 end

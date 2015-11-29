@@ -12,4 +12,9 @@
 
 class Comment < ActiveRecord::Base
   belongs_to :user
+  has_many :title_comments
+  has_many :content_comments
+  has_many :task_comments
+
+  soft_deletable dependent_associations: [:user]
 end

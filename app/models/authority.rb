@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: categories
+# Table name: authorities
 #
 #  id                :integer          not null, primary key
 #  name              :string(255)      not null
@@ -9,8 +9,8 @@
 #  updated_at        :datetime         not null
 #
 
-class Category < ActiveRecord::Base
-  has_many :ideas
+class Authority < ActiveRecord::Base
+  has_many :users
 
   soft_deletable
 end
