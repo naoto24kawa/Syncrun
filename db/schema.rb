@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.integer  "user_id",           limit: 4
+    t.integer  "user_id",           limit: 4,   null: false
   end
 
   add_index "comments", ["id"], name: "index_comments_on_id", using: :btree
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "content_id",        limit: 4
-    t.integer  "comment_id",        limit: 4
+    t.integer  "content_id",        limit: 4, null: false
+    t.integer  "comment_id",        limit: 4, null: false
   end
 
   add_index "content_comments", ["id"], name: "index_content_comments_on_id", using: :btree
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "content_id",        limit: 4
-    t.integer  "good_id",           limit: 4
+    t.integer  "content_id",        limit: 4, null: false
+    t.integer  "good_id",           limit: 4, null: false
   end
 
   add_index "content_goods", ["id"], name: "index_content_goods_on_id", using: :btree
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.integer  "idea_id",           limit: 4
+    t.integer  "idea_id",           limit: 4,   null: false
   end
 
   add_index "contents", ["id"], name: "index_contents_on_id", using: :btree
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "user_id",           limit: 4
+    t.integer  "user_id",           limit: 4, null: false
   end
 
   add_index "goods", ["id"], name: "index_goods_on_id", using: :btree
@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "title_id",          limit: 4
-    t.integer  "idea_id",           limit: 4
+    t.integer  "title_id",          limit: 4, null: false
+    t.integer  "idea_id",           limit: 4, null: false
   end
 
   add_index "idea_goods", ["id"], name: "index_idea_goods_on_id", using: :btree
@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "category_id",       limit: 4
-    t.integer  "user_id",           limit: 4
+    t.integer  "category_id",       limit: 4, null: false
+    t.integer  "user_id",           limit: 4, null: false
   end
 
   add_index "ideas", ["id"], name: "index_ideas_on_id", using: :btree
@@ -116,8 +116,8 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "task_id",           limit: 4
-    t.integer  "comment_id",        limit: 4
+    t.integer  "task_id",           limit: 4, null: false
+    t.integer  "comment_id",        limit: 4, null: false
   end
 
   add_index "task_comments", ["id"], name: "index_task_comments_on_id", using: :btree
@@ -126,8 +126,8 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "task_id",           limit: 4
-    t.integer  "good_id",           limit: 4
+    t.integer  "task_id",           limit: 4, null: false
+    t.integer  "good_id",           limit: 4, null: false
   end
 
   add_index "task_goods", ["id"], name: "index_task_goods_on_id", using: :btree
@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.integer  "idea_id",           limit: 4
+    t.integer  "idea_id",           limit: 4,   null: false
   end
 
   add_index "tasks", ["id"], name: "index_tasks_on_id", using: :btree
@@ -146,8 +146,8 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "title_id",          limit: 4
-    t.integer  "comment_id",        limit: 4
+    t.integer  "title_id",          limit: 4, null: false
+    t.integer  "comment_id",        limit: 4, null: false
   end
 
   add_index "title_comments", ["id"], name: "index_title_comments_on_id", using: :btree
@@ -156,8 +156,8 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "title_id",          limit: 4
-    t.integer  "good_id",           limit: 4
+    t.integer  "title_id",          limit: 4, null: false
+    t.integer  "good_id",           limit: 4, null: false
   end
 
   add_index "title_goods", ["id"], name: "index_title_goods_on_id", using: :btree
@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.integer  "idea_id",           limit: 4
+    t.integer  "idea_id",           limit: 4,   null: false
   end
 
   add_index "titles", ["id"], name: "index_titles_on_id", using: :btree
@@ -177,8 +177,8 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "authority_id",            limit: 4
-    t.integer  "personal_information_id", limit: 4
+    t.integer  "authority_id",            limit: 4,   null: false
+    t.integer  "personal_information_id", limit: 4,   null: false
   end
 
   add_index "users", ["id"], name: "index_users_on_id", using: :btree

@@ -5,6 +5,8 @@ class Migration < ActiveRecord::Migration
     add_indexes
 
     add_references
+
+    add_not_null_to_references
   end
 
   private
