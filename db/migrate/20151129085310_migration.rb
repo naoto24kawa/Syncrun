@@ -17,6 +17,13 @@ class Migration < ActiveRecord::Migration
       t.timestamps null: false
     end
 
+    create_table :authorities do |t|
+      t.string :name, null: false
+
+      t.datetime :soft_destroyed_at
+      t.timestamps null: false
+    end
+
     create_table :goods do |t|
       t.datetime :soft_destroyed_at
       t.timestamps null: false
@@ -113,7 +120,7 @@ class Migration < ActiveRecord::Migration
     add_reference :ideas, :user
     add_reference :idea_goods, :title
     add_reference :idea_goods, :idea
-    # add_reference :users, :authority
+    add_reference :users, :authority
     add_reference :users, :personal_information
     add_reference :titles, :idea
     add_reference :contents, :idea
@@ -150,7 +157,7 @@ class Migration < ActiveRecord::Migration
     add_index :users, :id
     add_index :idea_goods, :id
     add_index :ideas, :id
-    # add_index :authorities, :id
+    add_index :authorities, :id
     add_index :categories, :id
   end
 
@@ -159,7 +166,7 @@ class Migration < ActiveRecord::Migration
     change_column_null :ideas, :user_id, false
     change_column_null :idea_goods, :title_id, false
     change_column_null :idea_goods, :idea_id, false
-    # change_column_null :users, :authority_id, false
+    change_column_null :users, :authority_id, false
     change_column_null :users, :personal_information_id, false
     change_column_null :titles, :idea_id, false
     change_column_null :contents, :idea_id, false
