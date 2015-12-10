@@ -13,4 +13,11 @@ class Category < ActiveRecord::Base
   has_many :ideas
 
   soft_deletable
+
+  ART = 1
+  CRAFTS = 2
+  DESIGN = 3
+  FASHION = 4
+  FOOD = 5
+  TECHNOLOGY = 6
 end
