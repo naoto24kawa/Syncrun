@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20151129085310) do
   end
 
   add_index "comments", ["id"], name: "index_comments_on_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "content_comments", force: :cascade do |t|
     t.datetime "soft_destroyed_at"
@@ -49,6 +50,8 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.integer  "comment_id",        limit: 4, null: false
   end
 
+  add_index "content_comments", ["comment_id"], name: "index_content_comments_on_comment_id", using: :btree
+  add_index "content_comments", ["content_id"], name: "index_content_comments_on_content_id", using: :btree
   add_index "content_comments", ["id"], name: "index_content_comments_on_id", using: :btree
 
   create_table "content_goods", force: :cascade do |t|
@@ -59,6 +62,8 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.integer  "good_id",           limit: 4, null: false
   end
 
+  add_index "content_goods", ["content_id"], name: "index_content_goods_on_content_id", using: :btree
+  add_index "content_goods", ["good_id"], name: "index_content_goods_on_good_id", using: :btree
   add_index "content_goods", ["id"], name: "index_content_goods_on_id", using: :btree
 
   create_table "contents", force: :cascade do |t|
@@ -70,8 +75,10 @@ ActiveRecord::Schema.define(version: 20151129085310) do
   end
 
   add_index "contents", ["id"], name: "index_contents_on_id", using: :btree
+  add_index "contents", ["idea_id"], name: "index_contents_on_idea_id", using: :btree
 
   create_table "goods", force: :cascade do |t|
+    t.integer  "to_user_id",        limit: 4, null: false
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -79,6 +86,8 @@ ActiveRecord::Schema.define(version: 20151129085310) do
   end
 
   add_index "goods", ["id"], name: "index_goods_on_id", using: :btree
+  add_index "goods", ["to_user_id"], name: "fk_rails_b68daaf1b1", using: :btree
+  add_index "goods", ["user_id"], name: "index_goods_on_user_id", using: :btree
 
   create_table "idea_goods", force: :cascade do |t|
     t.datetime "soft_destroyed_at"
@@ -89,6 +98,8 @@ ActiveRecord::Schema.define(version: 20151129085310) do
   end
 
   add_index "idea_goods", ["id"], name: "index_idea_goods_on_id", using: :btree
+  add_index "idea_goods", ["idea_id"], name: "index_idea_goods_on_idea_id", using: :btree
+  add_index "idea_goods", ["title_id"], name: "index_idea_goods_on_title_id", using: :btree
 
   create_table "ideas", force: :cascade do |t|
     t.datetime "soft_destroyed_at"
@@ -98,7 +109,9 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.integer  "user_id",           limit: 4, null: false
   end
 
+  add_index "ideas", ["category_id"], name: "index_ideas_on_category_id", using: :btree
   add_index "ideas", ["id"], name: "index_ideas_on_id", using: :btree
+  add_index "ideas", ["user_id"], name: "index_ideas_on_user_id", using: :btree
 
   create_table "personal_informations", force: :cascade do |t|
     t.string   "name",              limit: 255, null: false
@@ -120,7 +133,9 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.integer  "comment_id",        limit: 4, null: false
   end
 
+  add_index "task_comments", ["comment_id"], name: "index_task_comments_on_comment_id", using: :btree
   add_index "task_comments", ["id"], name: "index_task_comments_on_id", using: :btree
+  add_index "task_comments", ["task_id"], name: "index_task_comments_on_task_id", using: :btree
 
   create_table "task_goods", force: :cascade do |t|
     t.datetime "soft_destroyed_at"
@@ -130,7 +145,9 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.integer  "good_id",           limit: 4, null: false
   end
 
+  add_index "task_goods", ["good_id"], name: "index_task_goods_on_good_id", using: :btree
   add_index "task_goods", ["id"], name: "index_task_goods_on_id", using: :btree
+  add_index "task_goods", ["task_id"], name: "index_task_goods_on_task_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
     t.string   "content",           limit: 255, null: false
@@ -141,6 +158,7 @@ ActiveRecord::Schema.define(version: 20151129085310) do
   end
 
   add_index "tasks", ["id"], name: "index_tasks_on_id", using: :btree
+  add_index "tasks", ["idea_id"], name: "index_tasks_on_idea_id", using: :btree
 
   create_table "title_comments", force: :cascade do |t|
     t.datetime "soft_destroyed_at"
@@ -150,7 +168,9 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.integer  "comment_id",        limit: 4, null: false
   end
 
+  add_index "title_comments", ["comment_id"], name: "index_title_comments_on_comment_id", using: :btree
   add_index "title_comments", ["id"], name: "index_title_comments_on_id", using: :btree
+  add_index "title_comments", ["title_id"], name: "index_title_comments_on_title_id", using: :btree
 
   create_table "title_goods", force: :cascade do |t|
     t.datetime "soft_destroyed_at"
@@ -160,7 +180,9 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.integer  "good_id",           limit: 4, null: false
   end
 
+  add_index "title_goods", ["good_id"], name: "index_title_goods_on_good_id", using: :btree
   add_index "title_goods", ["id"], name: "index_title_goods_on_id", using: :btree
+  add_index "title_goods", ["title_id"], name: "index_title_goods_on_title_id", using: :btree
 
   create_table "titles", force: :cascade do |t|
     t.string   "content",           limit: 255, null: false
@@ -171,6 +193,7 @@ ActiveRecord::Schema.define(version: 20151129085310) do
   end
 
   add_index "titles", ["id"], name: "index_titles_on_id", using: :btree
+  add_index "titles", ["idea_id"], name: "index_titles_on_idea_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                    limit: 255, null: false
@@ -181,6 +204,9 @@ ActiveRecord::Schema.define(version: 20151129085310) do
     t.integer  "personal_information_id", limit: 4,   null: false
   end
 
+  add_index "users", ["authority_id"], name: "index_users_on_authority_id", using: :btree
   add_index "users", ["id"], name: "index_users_on_id", using: :btree
+  add_index "users", ["personal_information_id"], name: "index_users_on_personal_information_id", using: :btree
 
+  add_foreign_key "goods", "users", column: "to_user_id"
 end

@@ -3,6 +3,7 @@
 # Table name: goods
 #
 #  id                :integer          not null, primary key
+#  to_user_id        :integer          not null
 #  soft_destroyed_at :datetime
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
