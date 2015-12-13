@@ -44,17 +44,21 @@ User.seed do |u|
 end
 
 # ------各カテゴリーのアイデア--------
-3.times do |i|
+# user_id = 2 のアイデア
+6.times do |i|
   Idea.seed do |s|
     s.id = i
     s.category_id = i
     s.user_id = 2
   end
+end
 
+# user_id = 3 のアイデア
+6.times do |i|
   Idea.seed do |s|
-    s.id = i + 3
-    s.category_id = i + 3
-    s.user_id = 2
+    s.id = i + 6
+    s.category_id = i
+    s.user_id = 3
   end
 end
 # ---------------------------------
@@ -111,7 +115,7 @@ Good.seed do |g|
 end
 # -------------------------------
 
-6.times do |i|
+12.times do |i|
   Title.seed do |t|
     t.id = i
     t.idea_id = i
