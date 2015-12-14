@@ -18,6 +18,7 @@ gem 'guard-coffeescript'
 gem 'slim-rails'
 gem 'kakurenbo-puti'
 gem 'cancancan'
+gem 'seed-fu'
 
 group :doc do
   gem 'yard'

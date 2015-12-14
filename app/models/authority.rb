@@ -13,4 +13,7 @@ class Authority < ActiveRecord::Base
   has_many :users
 
   soft_deletable
+
+  SUPER_USER = 1
+  USER = 2
 end
