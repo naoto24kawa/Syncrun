@@ -45,7 +45,7 @@ end
 
 # ------各カテゴリーのアイデア--------
 # user_id = 2 のアイデア
-6.times do |i|
+(1..6).each do |i|
   Idea.seed do |s|
     s.id = i
     s.category_id = i
@@ -54,7 +54,7 @@ end
 end
 
 # user_id = 3 のアイデア
-6.times do |i|
+(1..6).each do |i|
   Idea.seed do |s|
     s.id = i + 6
     s.category_id = i
@@ -64,13 +64,17 @@ end
 # ---------------------------------
 
 # -------各ユーザーのコメント-------
-3.times do |i|
+(1..3).each do |i|
   Comment.seed do |c|
+    c.id = i
     c.user_id = 2
     c.content = "comment_user_1_#{i}"
   end
+end
 
+(1..3).each do |i|
   Comment.seed do |c|
+    c.id = i
     c.user_id = 3
     c.content = "comment_user_2_#{i}"
   end
@@ -115,7 +119,7 @@ Good.seed do |g|
 end
 # -------------------------------
 
-12.times do |i|
+(1..12).each do |i|
   Title.seed do |t|
     t.id = i
     t.idea_id = i
