@@ -1,2 +1,26 @@
-h1 Static#home
-p Find me in app/views/static/home.html.slim
+.category
+  /Nav tabs
+  ul.nav.nav-tabs role="tablist"
+    - @categories.each_with_index do |category, i|
+      - name = category.name
+      - active = i == 0 ? "active" : "" # 最初に表示しておくカテゴリー
+
+      li.category class=active role="presentation"
+        a href=".#{name.downcase}" aria-controls=name.downcase role="tab" data-toggle="tab" = name
+
+  /Tab panes
+  .tab-content
+    - @categories.each_with_index do |category, i|
+      - name = category.name
+      - in_active = i == 0 ? " in active" : "" # 最初に表示しておくカテゴリー
+
+      - category.ideas.each do |idea|
+        .tab-pane.fade class="#{in_active} #{name.downcase}" role="tabpanel"
+          /TODO: リンク先の指定
+          a.link-box href="#"
+          .idea-content
+            p.idea-title.lead = idea.titles.first.content
+            p.idea-user = idea.user.name
+            p.idea-body = truncate(idea.contents.first.content, length: 220)
+
+button.btn.btn-default.btn-lg.mypage-button type="button" My Page
