@@ -1,0 +1,66 @@
+div.category {
+  float: right;
+  width: 912px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-right: 150px;
+}
+
+div.category a {
+  width: 150px;
+  text-align: center;
+}
+
+div.tab-content {
+  width: 100%;
+  margin-top: 10px;
+}
+
+div.tab-pane {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+div.idea-content {
+  padding: 10px;
+}
+
+a.link-box {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100% !important;
+  height:100%;
+}
+
+div.first-active {
+  border-radius: 3px 3px 0 0;
+}
+
+div.not-first-last-active {
+  border-top: transparent;
+}
+
+div.last-active {
+  border-radius: 0 0 3px 3px;
+  border-top: transparent;
+}
+
+a.idea-title {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+div.idea-content > * {
+  word-break: break-all;
+}
+
+.mypage-button {
+  width: 120px;
+  height: 80px;
+  margin-top: 60px;
+  margin-left: 50px;
+}
